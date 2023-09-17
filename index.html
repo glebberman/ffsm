@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Auto Filler Demo</title>
+    <script src="form-filling-script-maker.js"></script>
+    <style>
+        form {
+            margin: 2rem;
+        }
+
+        form label {
+            display: grid;
+            max-width: 800px;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 1fr;
+        }
+
+        form label>* {
+            padding: 8px 12px;
+        }
+
+        form label> :first-child {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Auto Filler Demo</h1>
+    <p>This is a demo of the form filler script. It will fill the form with random data.</p>
+
+    <h2>Form with ID and inputs with IDs</h2>
+    <form action="#" id="first">
+        <label for="a">
+            <span>Text</span>
+            <div class="input">
+                <input type="text" id="a">
+            </div>
+        </label>
+        <label for="b">
+            <span>Email</span>
+            <div class="input">
+                <input type="email" id="b">
+            </div>
+        </label>
+        <label for="c">
+            <span>Password</span>
+            <div class="input">
+                <input type="password" id="c">
+            </div>
+        </label>
+        <label for="d">
+            <div class="input">
+                <input type="checkbox" id="d">
+            </div>
+            <span>Checkbox</span>
+        </label>
+        <label for="e">
+            <span>Options</span>
+            <div class="input">
+                <select id="e">
+                    <option value="1">Option one</option>
+                    <option value="2">Option two</option>
+                    <option value="3">Option three</option>
+                </select>
+            </div>
+        </label>
+        <label for="f">
+            <span>Text area</span>
+            <div class="input">
+                <textarea name="" id="f" cols="30" rows="10"></textarea>
+            </div>
+        </label>
+        <button onClick="(function(){makeScriptForFilling(document.getElementById('first'))})()">
+            Get filler for the First Form
+        </button>
+    </form>
+
+    <h2>Form with ID and inputs without IDs</h2>
+    <form action="#" id="second">
+        <label>
+            <span>Text</span>
+            <div class="input">
+                <input type="text">
+            </div>
+        </label>
+        <label>
+            <span>Email</span>
+            <div class="input">
+                <input type="email">
+            </div>
+        </label>
+        <label>
+            <span>Password</span>
+            <div class="input">
+                <input type="password">
+            </div>
+        </label>
+        <label>
+            <div class="input">
+                <input type="checkbox">
+            </div>
+            <span>Checkbox</span>
+        </label>
+        <label>
+            <span>Options</span>
+            <div class="input">
+                <select>
+                    <option value="1">Option one</option>
+                    <option value="2">Option two</option>
+                    <option value="3">Option three</option>
+                </select>
+            </div>
+        </label>
+        <label>
+            <span>Text area</span>
+            <div class="input">
+                <textarea name="" cols="30" rows="10"></textarea>
+            </div>
+        </label>
+        <button onClick="(function(){makeScriptForFilling(document.getElementById('second'))})()">
+            Get filler script for the Second Form</button>
+    </form>
+
+    <h2>Form without ID and inputs without IDs</h2>
+    <form action="#">
+        <label>
+            <span>Text</span>
+            <div class="input">
+                <input type="text">
+            </div>
+        </label>
+        <label>
+            <span>Email</span>
+            <div class="input">
+                <input type="email">
+            </div>
+        </label>
+        <label>
+            <span>Password</span>
+            <div class="input">
+                <input type="password">
+            </div>
+        </label>
+        <label>
+            <div class="input">
+                <input type="checkbox">
+            </div>
+            <span>Checkbox</span>
+        </label>
+        <label>
+            <span>Options</span>
+            <div class="input">
+                <select>
+                    <option value="1">Option one</option>
+                    <option value="2">Option two</option>
+                    <option value="3">Option three</option>
+                </select>
+            </div>
+        </label>
+        <label>
+            <span>Text area</span>
+            <div class="input">
+                <textarea name="" cols="30" rows="10"></textarea>
+            </div>
+        </label>
+        <button onClick="(function(){makeScriptForFilling(document.getElementsByTagName('form')[2])})()">
+            Get filler script for the Third Form
+        </button>
+    </form>
+
+    <button onClick="makeScriptForFilling()">
+        Get filler for every form
+    </button>
+
+</body>
+
+</html>
